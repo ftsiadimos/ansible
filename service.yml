@@ -1,9 +1,9 @@
-- name: Install nginx
+- name: check ssh
   hosts: all
   become: true
 
   tasks:
-  - name: Start NGiNX
+  - name: Start sshd
     service:
       name: sshd
-      state: status
+      state: started
