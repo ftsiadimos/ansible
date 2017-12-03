@@ -1,0 +1,7 @@
+ name: hostname
+  hosts: all
+  become: true
+
+  tasks:
+  - name: check hostname
+  - shell: hostname
