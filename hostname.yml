@@ -1,4 +1,4 @@
- name: hostname
+- name: hostname
   hosts: all
   become: true
 
