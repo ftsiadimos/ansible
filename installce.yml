@@ -1,8 +1,14 @@
-- name: Install docker
+- name: Install docker-ce
   hosts: all
   become: true
 
   tasks:
+
+  - name: stop firewalld
+    systemd: 
+      name: firewalld 
+      state: stopped
+      enabled: no
   
   - name: remove docker
     yum: state=absent name={{ item }}
@@ -38,3 +44,6 @@
       name: docker
       state: started
       enabled: True
+
+  - name: ucp
+    shell:  docker run --rm -it --name ucp -v /var/run/docker.sock:/var/run/docker.sock docker/ucp install  --admin-username admin  --admin-password '12345678' 
