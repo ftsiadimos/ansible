@@ -1,5 +1,5 @@
 - name: Install docker-ce
-  hosts: all
+  hosts: aa.agonyweb.com
   become: true
 
   tasks:
