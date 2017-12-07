@@ -1,5 +1,5 @@
 - name: Install docker-ce
-  hosts: dtr1.agonyweb.com
+  hosts: "{{ variable_host }}"
   become: true
 
   tasks:
