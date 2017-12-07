@@ -1,0 +1,49 @@
+- name: Install docker-ce
+  hosts: all
+  become: true
+
+  tasks:
+
+  - name: stop firewalld
+    systemd: 
+      name: firewalld 
+      state: stopped
+      enabled: no
+  
+  - name: remove docker
+    yum: state=absent name={{ item }}
+    with_items:
+      - docker
+      - docker-common
+      - docker-selinux
+      - docker-engine
+
+  - name: Install packages
+    yum: state=present name={{ item }}
+    with_items:
+    - yum-utils
+    - device-mapper-persistent-data
+    - lvm2
+
+  - name: Add repository
+    yum_repository:
+      name: dockerce
+      description: dockerce
+      baseurl: https://download.docker.com/linux/centos/7/$basearch/stable
+      enabled: yes
+      gpgcheck: yes
+      gpgkey: https://download.docker.com/linux/centos/gpg
+
+  - name: install dockerce
+    yum:
+      name: docker-ce
+      state: present
+
+  - name: enable docker
+    systemd:
+      name: docker
+      state: started
+      enabled: True
+
+  - name: ucp
+    shell:  docker run --rm -i --name ucp -v /var/run/docker.sock:/var/run/docker.sock docker/ucp install  --admin-username admin  --admin-password '12345678' 
