@@ -1,5 +1,5 @@
 - name: Install docker-ce
-  hosts: dm1.agonyweb.com
+  hosts: "{{ variable_host }}"
   become: true
 
   tasks:
@@ -44,6 +44,6 @@
       name: docker
       state: started
       enabled: True
-
+ 
   - name: ucp
-    shell:  docker run --rm -i --name ucp -v /var/run/docker.sock:/var/run/docker.sock docker/ucp install  --admin-username admin  --admin-password '12345678' 
+    shell:  docker run --rm -i --name ucp -v /var/run/docker.sock:/var/run/docker.sock docker/ucp install  --admin-username admin  --admin-password "{{ ucp_pass }}"     
