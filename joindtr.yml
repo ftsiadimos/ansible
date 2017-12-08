@@ -1,0 +1,7 @@
+- name: Install docker-ce
+  hosts: "{{ variable_host }}"
+  become: true
+
+  tasks:
+  - name: ucp
+    shell: docker run -it --rm docker/dtr join  --existing-replica-id {{replica_id}} --ucp-node {{ucp_node}} --ucp-insecure-tls --ucp-url https://{{ucp_url}} --ucp-username admin  --ucp-password {{ucp_pass}} 
