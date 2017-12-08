@@ -46,4 +46,4 @@
       enabled: True
  
   - name: DTR
-    shell: docker container run -it --rm docker/dtr install  --ucp-node "{{ucp_node}}" --ucp-insecure-tls --ucp-url https://"{{ucp_url}}" --ucp-username admin  --ucp-password "{{ucp_pass}}" --dtr-external-url https://"{{dtr_external_url}}" --replica-http-port "{{http_port}}" --replica-https-port "{{https_port}}"  --nfs-storage-url nfs://"{{nfs_url}}"    
+    shell: docker container run -it --rm docker/dtr install  --ucp-node {{ucp_node}} --ucp-insecure-tls --ucp-url https://{{ucp_url}} --ucp-username admin  --ucp-password {{ucp_pass}} --dtr-external-url https://{{dtr_external_url}} --replica-http-port {{http_port}} --replica-https-port {{https_port}}  --nfs-storage-url nfs://{{nfs_url}}    
