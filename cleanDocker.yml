@@ -1,0 +1,20 @@
+- name: remove docker-ce
+  hosts: "{{ variable_host }}"
+  become: true
+
+  tasks:
+
+  - name: stop dcoker
+    systemd: 
+      name: docker 
+      state: stopped
+      enabled: no
+  
+  - name: remove docker
+    yum: state=absent name={{ item }}
+    with_items:
+      - docker
+      - docker-common
+      - docker-selinux
+      - docker-engine
+      - dcoker-ce
