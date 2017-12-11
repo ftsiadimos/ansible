@@ -18,3 +18,7 @@
       - docker-selinux
       - docker-engine
       - dcoker-ce
+  - name: Clean files
+    file:
+      state: absent
+      path: "/var/lib/docker/"
