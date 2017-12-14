@@ -31,6 +31,7 @@
       description: dockeree
       baseurl: http://myserver/docker/
       enabled: yes
+      gpgcheck: no
 
 
   - name: Add repository
