@@ -17,7 +17,9 @@
       - docker-common
       - docker-selinux
       - docker-engine
-      - dcoker-ce
+      - docker-ce
+      - docker-ee
+      
   - name: Clean files
     file:
       state: absent
