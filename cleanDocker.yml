@@ -22,3 +22,5 @@
     file:
       state: absent
       path: "/var/lib/docker/"
+  - name: DTR
+    shell: reboot
