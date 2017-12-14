@@ -29,7 +29,7 @@
     yum_repository:
       name: dockeree
       description: dockeree
-      baseurl: http://myserver/docker/repodata/
+      baseurl: http://myserver/docker/
       enabled: yes
 
 
