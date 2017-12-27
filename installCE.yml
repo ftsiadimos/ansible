@@ -1,4 +1,4 @@
-- name: Install docker-ce
+- name: Install docker-ee
   hosts: "{{ variable_host }}"
   become: true
 
@@ -43,7 +43,7 @@
       gpgcheck: yes
       gpgkey: https://download.docker.com/linux/centos/gpg
 
-  - name: install dockerce
+  - name: install dockeree
     yum:
       name: docker-ee
       state: present
