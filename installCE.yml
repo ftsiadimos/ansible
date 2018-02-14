@@ -39,8 +39,8 @@
       name: dockerce
       description: dockerce
       baseurl: https://download.docker.com/linux/centos/7/$basearch/stable
-      enabled: yes
-      gpgcheck: yes
+      enabled: no
+      gpgcheck: no
       gpgkey: https://download.docker.com/linux/centos/gpg
 
   - name: install dockeree
