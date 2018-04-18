@@ -24,5 +24,9 @@
     file:
       state: absent
       path: "/var/lib/docker/"
-  - name: DTR
-    shell: reboot
+      
+  - name: Restart server
+    command: /sbin/shutdown -r +1
+    async: 0
+    poll: 0
+    ignore_errors: true
