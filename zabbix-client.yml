@@ -24,7 +24,7 @@
       ServerActive=zabbix.agonyweb.com
       Hostname=$(hostname)
       Include=/etc/zabbix/zabbix_agentd.d/*.conf
-      EOF
+
 
 
   - name: enable zabbix
