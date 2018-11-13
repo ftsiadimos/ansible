@@ -3,7 +3,7 @@
   become: true
 
   tasks:
-  - name: zabbix-release
+  - name: Add repo
     yum:
       name: http://repo.zabbix.com/zabbix/4.0/rhel/7/x86_64/zabbix-release-4.0-1.el7.noarch.rpm
       state: present
@@ -14,7 +14,7 @@
       state: present
 
 
-  - name: Pycharm
+  - name: Edit Config File
     shell: |
       cat > /etc/zabbix/zabbix_agentd.conf << EOF
       PidFile=/var/run/zabbix/zabbix_agentd.pid
@@ -27,7 +27,7 @@
 
 
 
-  - name: enable zabbix
+  - name: Enable/Start zabbix
     systemd:
       name: zabbix-agent
       state: started
